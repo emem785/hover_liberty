@@ -4,8 +4,6 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log
 import androidx.annotation.NonNull
-import androidx.appcompat.app.AppCompatActivity
-import com.hover.sdk.api.Hover
 
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
@@ -15,8 +13,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry
-import io.flutter.plugins.Pigeon
-import java.util.concurrent.CancellationException
+import io.flutter.hover.Pigon
 
 /** HoverLibertyPlugin */
 class HoverLibertyPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
@@ -32,7 +29,7 @@ class HoverLibertyPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         hoverApi = HoverApi()
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "hover_liberty")
-        Pigeon.HoverApi.setup(flutterPluginBinding.binaryMessenger, hoverApi)
+        Pigon.HoverApi.setup(flutterPluginBinding.binaryMessenger, hoverApi)
         channel.setMethodCallHandler(this)
     }
 
@@ -76,7 +73,7 @@ class HoverLibertyPlugin : FlutterPlugin, MethodCallHandler, ActivityAware,
         val resultMessage: List<String>? =
             data?.getStringArrayExtra("session_messages")?.toList()
 
-        var response = Pigeon.HoverResponse().apply {
+        var response = Pigon.HoverResponse().apply {
             responseCode = resultCode.toLong()
             errorMessage = resultError
             messages = resultMessage

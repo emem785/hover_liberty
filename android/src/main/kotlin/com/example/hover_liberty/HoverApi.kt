@@ -1,18 +1,13 @@
 package com.example.hover_liberty
 
 import android.app.Activity
-import android.content.ContentValues.TAG
-import android.util.Log
 import com.hover.sdk.api.Hover
-import com.hover.sdk.api.HoverConfigException
-import com.hover.sdk.api.HoverHelper
-import io.flutter.plugins.Pigeon
+import io.flutter.hover.Pigon
 import com.hover.sdk.api.HoverParameters
-import kotlin.coroutines.cancellation.CancellationException
 
 
-class HoverApi() : Pigeon.HoverApi {
-    var hoverResponse: Pigeon.Result<Pigeon.HoverResponse>? = null
+class HoverApi() : Pigon.HoverApi {
+    var hoverResponse: Pigon.Result<Pigon.HoverResponse>? = null
     private var flutterActivity: Activity? = null
 
     fun initialize(activity: Activity) {
@@ -22,8 +17,8 @@ class HoverApi() : Pigeon.HoverApi {
 
 
     override fun initiateRequest(
-        request: Pigeon.HoverRequest,
-        result: Pigeon.Result<Pigeon.HoverResponse>?
+        request: Pigon.HoverRequest,
+        result: Pigon.Result<Pigon.HoverResponse>?
     ) {
             hoverResponse = result
             val intent = HoverParameters.Builder(flutterActivity)
