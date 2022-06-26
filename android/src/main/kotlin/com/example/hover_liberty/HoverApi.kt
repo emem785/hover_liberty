@@ -13,6 +13,7 @@ class HoverApi() : Pigon.HoverApi {
     fun initialize(activity: Activity) {
         flutterActivity = activity
         Hover.initialize(activity)
+        Hover.setBranding("Liberty Assured",R.drawable.liberty_logo,activity)
     }
 
 
@@ -24,6 +25,8 @@ class HoverApi() : Pigon.HoverApi {
             val intent = HoverParameters.Builder(flutterActivity)
                 .request(request.actionId)  //Action ID
                 .finalMsgDisplayTime(0)
+
+
 
 
             request.extraData?.forEach { entry ->
