@@ -28,7 +28,6 @@ class HoverApi() : Pigon.HoverApi {
 
 
 
-
             request.extraData?.forEach { entry ->
                 intent.extra(entry.key, entry.value)
             }

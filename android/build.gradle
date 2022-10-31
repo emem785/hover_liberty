@@ -18,12 +18,11 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
-        maven { url "https://maven.google.com" }
         maven {
             url "http://maven.usehover.com/releases"
             allowInsecureProtocol = true
         }
+        maven { url "https://maven.google.com" }
     }
 }
 
@@ -53,5 +52,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.hover:android-sdk:1.7.1'
+    implementation 'com.hover:android-sdk:1.7.3'
 }
